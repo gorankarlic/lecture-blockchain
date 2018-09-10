@@ -1,0 +1,16 @@
+{
+    "author": "Goran Karlic",
+    "name": "lecture-blockchain",
+    "version": "1.0.0",
+    "dependencies": {},
+    "scripts": {
+        "install-geth-macos": "rm -rf target/geth && mkdir -p target/geth && curl --output target/geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-alltools-darwin-amd64-1.8.15-89451f7c.tar.gz && gunzip -c target/geth.tar.gz | tar xopf - -C target/geth --strip-components 1",
+        "bootnode": "target/geth/bootnode -nodekey src/geth/boot.key -verbosity 9 -addr :30310",
+        "geth-init": "rm -rf target/geth-data/node1 target/geth-data/node2 && mkdir -p target/geth-data && cp -rf src/geth/node1 target/geth-data && cp -rf src/geth/node2 target/geth-data && target/geth/geth --datadir target/geth-data/node1 init src/geth/genesis.json && target/geth/geth --datadir target/geth-data/node2 init src/geth/genesis.json",
+        "geth-mine": "target/geth/geth --datadir target/geth-data/node1 --syncmode full --port 30311 --bootnodes enode://33d0cb318778d0a88f71bebce05b45a36c531d0775375dc142abf4cffe402f2a8ae8d142779c2b5fb96aca19dcd79906792bd9949b311c10c34432d557dd416e@127.0.0.1:30310 --networkid 123 -unlock 0x1b1bca762dfebdda5d5bbf5e3041fe91b1be609e --password src/geth/node1/password.txt --rpc --rpcaddr localhost --rpcport 8501 --rpcapi personal,db,eth,net,web3,txpool,miner --gasprice 1 --mine",
+        "geth-node": "target/geth/geth --datadir target/geth-data/node2 --syncmode fast --port 30312 --bootnodes enode://33d0cb318778d0a88f71bebce05b45a36c531d0775375dc142abf4cffe402f2a8ae8d142779c2b5fb96aca19dcd79906792bd9949b311c10c34432d557dd416e@127.0.0.1:30310 --networkid 123",
+        "geth-console-1": "target/geth/geth --datadir target/geth-data/node1 attach",
+        "geth-console-2": "target/geth/geth --datadir target/geth-data/node2 attach",
+        "geth-test-1": "target/geth/geth --datadir target/geth-data/node1 --exec 'loadScript(\"test.js\")' attach"
+    }
+}

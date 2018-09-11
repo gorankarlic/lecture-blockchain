@@ -4,12 +4,15 @@ var tx =
 {
     from: account1,
     to: account2,
-    value: web3.toWei(123, "wei")
+    value: 123
 };
 
+var balanceAccount1 = web3.eth.getBalance(account1);
+var balanceAccount2 = web3.eth.getBalance(account2);
+
 console.log("Block number", web3.eth.blockNumber);
-console.log("Account 1", account1, web3.eth.getBalance(account1), "wei");
-console.log("Account 2", account2, web3.eth.getBalance(account2), "wei");
+console.log("Account 1", account1, balanceAccount1, "wei")
+console.log("Account 2", account2, balanceAccount2, "wei")
 
 var txHash = web3.eth.sendTransaction(tx);
 console.log("Transaction hash", txHash);

@@ -11,5 +11,5 @@ console.log("Block number", web3.eth.blockNumber);
 console.log("Account 1", account1, web3.eth.getBalance(account1), "wei");
 console.log("Account 2", account2, web3.eth.getBalance(account2), "wei");
 
-var result = web3.eth.sendTransaction(tx);
-console.log("Transaction", result);
+var txHash = web3.eth.sendTransaction(tx);
+console.log("Transaction hash", txHash);

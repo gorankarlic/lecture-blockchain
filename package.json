@@ -33,7 +33,7 @@
         "console-5": "target/geth/geth --datadir target/geth-data/node5 attach",
         "console-6": "target/geth/geth --datadir target/geth-data/node6 attach",
         "console-7": "target/geth/geth --datadir target/geth-data/node7 attach",
-        "transfer-1-2": "target/geth/geth --datadir target/geth-data/node1 --exec 'loadScript(\"scripts/transfer-1-2.js\")' attach",
+        "transfer-1-2": "target/geth/geth --datadir target/geth-data/node1 --exec 'loadScript(\"src/scripts/transfer-1-2.js\")' attach",
         "transfer-2-3": "target/geth/geth --datadir target/geth-data/node2 --exec 'loadScript(\"scripts/transfer-2-3.js\")' attach",
         "transfer-3-4": "target/geth/geth --datadir target/geth-data/node3 --exec 'loadScript(\"scripts/transfer-3-4.js\")' attach",
         "transfer-4-5": "target/geth/geth --datadir target/geth-data/node4 --exec 'loadScript(\"scripts/transfer-4-5.js\")' attach",

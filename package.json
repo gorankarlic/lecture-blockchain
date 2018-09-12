@@ -20,15 +20,18 @@
         "poa-run-3": "target/geth/geth --datadir target/geth-data/node3 --syncmode full --port 30313 --bootnodes enode://33d0cb318778d0a88f71bebce05b45a36c531d0775375dc142abf4cffe402f2a8ae8d142779c2b5fb96aca19dcd79906792bd9949b311c10c34432d557dd416e@192.168.1.22:30310 --networkid 123 -unlock 0xa139bc4f28a3ee8a6c1fd938e869f99a130db429 --password src/geth/node3/password.txt --gasprice 1 --mine",
         "poa-run-4": "target/geth/geth --datadir target/geth-data/node4 --syncmode full --port 30314 --bootnodes enode://33d0cb318778d0a88f71bebce05b45a36c531d0775375dc142abf4cffe402f2a8ae8d142779c2b5fb96aca19dcd79906792bd9949b311c10c34432d557dd416e@192.168.1.22:30310 --networkid 123 -unlock 0xa14e70b702cced06e5720886a0e29a01cce8cf17 --password src/geth/node4/password.txt --gasprice 1 --mine",
         "poa-run-5": "target/geth/geth --datadir target/geth-data/node5 --syncmode full --port 30315 --bootnodes enode://33d0cb318778d0a88f71bebce05b45a36c531d0775375dc142abf4cffe402f2a8ae8d142779c2b5fb96aca19dcd79906792bd9949b311c10c34432d557dd416e@192.168.1.22:30310 --networkid 123 -unlock 0xa155e049c8a8e6b2d80307c5a2cddce121106262 --password src/geth/node5/password.txt --gasprice 1 --mine",
+        "poa-run-6": "target/geth/geth --datadir target/geth-data/node6 --syncmode full --port 30316 --bootnodes enode://33d0cb318778d0a88f71bebce05b45a36c531d0775375dc142abf4cffe402f2a8ae8d142779c2b5fb96aca19dcd79906792bd9949b311c10c34432d557dd416e@192.168.1.22:30310 --networkid 123 -unlock 0xa16ecd74300f253d924019b34c10dcd320cf1ce0 --password src/geth/node6/password.txt --gasprice 1 --mine",
         "geth-console-1": "target/geth/geth --datadir target/geth-data/node1 attach",
         "geth-console-2": "target/geth/geth --datadir target/geth-data/node2 attach",
         "geth-console-3": "target/geth/geth --datadir target/geth-data/node3 attach",
         "geth-console-4": "target/geth/geth --datadir target/geth-data/node4 attach",
         "geth-console-5": "target/geth/geth --datadir target/geth-data/node5 attach",
-        "transfer-1-2": "target/geth/geth --datadir target/geth-data/node1 --exec 'loadScript(\"transfer-1-2.js\")' attach",
+        "geth-console-6": "target/geth/geth --datadir target/geth-data/node6 attach",
+        "transfer-1-2": "target/geth/geth --datadir target/geth-data/node1 --exec 'loadScript(\"scripts/transfer-1-2.js\")' attach",
         "transfer-2-3": "target/geth/geth --datadir target/geth-data/node2 --exec 'loadScript(\"transfer-2-3.js\")' attach",
         "transfer-3-4": "target/geth/geth --datadir target/geth-data/node3 --exec 'loadScript(\"transfer-3-4.js\")' attach",
         "transfer-4-5": "target/geth/geth --datadir target/geth-data/node4 --exec 'loadScript(\"transfer-4-5.js\")' attach",
-        "transfer-5-1": "target/geth/geth --datadir target/geth-data/node5 --exec 'loadScript(\"transfer-5-1.js\")' attach"
+        "transfer-5-6": "target/geth/geth --datadir target/geth-data/node4 --exec 'loadScript(\"transfer-5-6.js\")' attach",
+        "transfer-6-1": "target/geth/geth --datadir target/geth-data/node5 --exec 'loadScript(\"transfer-6-1.js\")' attach"
     }
 }

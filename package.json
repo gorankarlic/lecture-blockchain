@@ -7,8 +7,8 @@
     "dependencies": {},
     "scripts": {
         "clean": "rm -rf target/geth-data",
+        "install-armv7": "rm -rf target/geth && mkdir -p target/geth && curl --output target/geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-arm7-1.8.15-89451f7c.tar.gz && gunzip -c target/geth.tar.gz | tar xopf - -C target/geth --strip-components 1",
         "install-macos": "rm -rf target/geth && mkdir -p target/geth && curl --output target/geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-alltools-darwin-amd64-1.8.15-89451f7c.tar.gz && gunzip -c target/geth.tar.gz | tar xopf - -C target/geth --strip-components 1",
-        "install-linux": "rm -rf target/geth && mkdir -p target/geth && curl --output target/geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.8.15-89451f7c.tar.gz && gunzip -c target/geth.tar.gz | tar xopf - -C target/geth --strip-components 1",
         "bootnode": "target/geth/bootnode -nodekey src/geth/boot.key -verbosity 9 -addr :30310",
         "poa-genesis-1": "rm -rf target/geth-data/node1 && mkdir -p target/geth-data && cp -rf src/geth/node1 target/geth-data && target/geth/geth --datadir target/geth-data/node1 init src/poa/genesis.json",
         "poa-genesis-2": "rm -rf target/geth-data/node2 && mkdir -p target/geth-data && cp -rf src/geth/node2 target/geth-data && target/geth/geth --datadir target/geth-data/node2 init src/poa/genesis.json",

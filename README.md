@@ -4,11 +4,13 @@
 
 ### Clone repository
 
-Clone this [git]() repository.
+Clone this [git](https://git-scm.com) repository.
 
 ```sh
-git clone https://github.com/gorankarlic/lecture-blockchain.git
+git clone https://github.com/gorankarlic/lecture-blockchain.git ~/lecture-blockchain
 ```
+
+If you want to learn and play more with **git** you may want to try [GitKraken](https://www.gitkraken.com).
 
 ### Install NodeJS
 
@@ -25,12 +27,14 @@ Download and install [Geth](https://geth.ethereum.org/downloads/) in ```target/g
 - On Rasperry Pi run
 
     ```
+    cd ~/lecture-blockchain
     npm run install-armv7
     ```
 
 - On MacOS run
 
     ```sh
+    cd ~/lecture-blockchain
     npm run install-macos
     ```
 

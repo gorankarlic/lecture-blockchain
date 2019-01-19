@@ -17,7 +17,7 @@ If you want to learn and play more with **git** you may want to try [GitKraken](
 Install [NodeJS version 8](https://nodejs.org/en/download/).
 
 ```sh
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && sudo apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash - && sudo apt-get install -y nodejs
 ```
 
 ### Geth

@@ -2,7 +2,15 @@
 
 ## Prepare environment
 
-### Clone repository
+### Prepare in one command
+
+```sh
+apt-get update && curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash - && apt-get install -y build-essential git-core nodejs && git clone https://github.com/gorankarlic/lecture-blockchain.git ~/lecture-blockchain && npm -C ~/lecture-blockchain install && npm -C ~/lecture-blockchain run install-linux
+```
+
+### Prepare environment (step by step)
+
+#### Clone repository
 
 Clone this [git](https://git-scm.com) repository.
 
@@ -12,7 +20,7 @@ git clone https://github.com/gorankarlic/lecture-blockchain.git ~/lecture-blockc
 
 If you want to learn and play more with **git** you may want to try [GitKraken](https://www.gitkraken.com).
 
-### Install NodeJS
+#### Install NodeJS
 
 Install [NodeJS version 8](https://nodejs.org/en/download/).
 
@@ -20,7 +28,7 @@ Install [NodeJS version 8](https://nodejs.org/en/download/).
 curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash - && sudo apt-get install -y nodejs
 ```
 
-### Geth
+#### Install Geth
 
 Download and install [Geth](https://geth.ethereum.org/downloads/) in ```target/geth```
 

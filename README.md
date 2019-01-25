@@ -4,6 +4,8 @@
 
 ### Prepare in one command
 
+Execute all steps below in one line.
+
 ```sh
 apt-get update && curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash - && apt-get install -y build-essential git-core nodejs && git clone https://github.com/gorankarlic/lecture-blockchain.git ~/lecture-blockchain && npm -C ~/lecture-blockchain install && npm -C ~/lecture-blockchain run install-linux
 ```

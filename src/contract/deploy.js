@@ -10,20 +10,18 @@ const Web3 = require("web3");
  * @type String
  */
 const USAGE =
-`Usage: node deploy.js gethipc account password solidity address
+`Usage: node deploy.js gethipc compiled account password
     gethipc
         the geth IPC file
+    compiled
+        the compiled contract file
     account
         the account address
     password
         the account password file
-    compiled
-        the compiled contract file
-    address
-        the deployed contract address output file
 `;
 
-if(process.argv.length !== 7)
+if(process.argv.length !== 6)
 {
    process.stdout.write(USAGE);
    process.exit(1);
@@ -35,10 +33,9 @@ if(process.argv.length !== 7)
 async function main()
 {
     const gethIPC = process.argv[2];
-    const account = process.argv[3];
-    const password = fs.readFileSync(process.argv[4], "utf8");
-    const compiled = fs.readFileSync(process.argv[5], "utf8");
-    const filename = process.argv[6];
+    const compiled = fs.readFileSync(process.argv[3], "utf8");
+    const account = process.argv[4];
+    const password = fs.readFileSync(process.argv[5], "utf8");
     
     const code = JSON.parse(compiled);
     const abi = code.abi;
@@ -63,8 +60,6 @@ async function main()
         console.log("received receipt", receipt);
         const address = receipt.contractAddress;
         console.log("contract deployed at", address);
-        fs.writeFileSync(filename, address);
-        console.log("saved contract address in file", filename);
         process.exit(0);
     });
     try

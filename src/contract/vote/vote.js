@@ -11,10 +11,9 @@ const Web3 = require("web3");
 async function main()
 {
     const gethipc = process.argv[2];
-    const account = process.argv[3];
-    const password = fs.readFileSync(process.argv[4], "utf8");
-    const compiled = fs.readFileSync(process.argv[5], "utf8");
-    const address = fs.readFileSync(process.argv[6], "utf8");
+    const compiled = fs.readFileSync(process.argv[3], "utf8");
+    const account = process.argv[4];
+    const password = fs.readFileSync(process.argv[5], "utf8");
 
     const {abi} = JSON.parse(compiled);
     const web3 = new Web3(gethipc, net);
@@ -24,6 +23,23 @@ async function main()
     const unlocked = web3.eth.personal.unlockAccount(account, password, 60);
     console.log("account unlocked", account);
 
+    const event = web3.utils.sha3("Voting");
+    const signature = web3.utils.sha3("WHU");
+    const search =
+    {
+        fromBlock: 1,
+        toBlock: "latest",
+        topics: [event, signature]
+    };
+    const logs = await web3.eth.getPastLogs(search);
+    const addresses = logs.map(({address}) => address);
+    if(addresses.length === 0)
+    {
+        console.log("contract not deployed yet");
+        process.exit(1);
+    }
+    
+    const address = addresses[0];
     const contract = new web3.eth.Contract(abi, address);
     const voted = await contract.methods.voted(account).call();
     if(voted)

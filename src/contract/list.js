@@ -10,7 +10,7 @@ const Web3 = require("web3");
  * @type String
  */
 const USAGE =
-`Usage: node deploy.js gethipc account password solidity address
+`Usage: node list.js gethipc
     gethipc
         the geth IPC file
 `;

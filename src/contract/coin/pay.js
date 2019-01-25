@@ -7,22 +7,21 @@ const util = require("util");
 const Web3 = require("web3");
 
 /**
- * Mint some coins.
+ * Pay some coins to an address.
  */
 async function main()
 {
     const gethipc = process.argv[2];
     const compiled = fs.readFileSync(process.argv[3], "utf8");
-    const account = process.argv[4];
+    const account1 = process.argv[4];
     const password = fs.readFileSync(process.argv[5], "utf8");
+    const account2 = process.argv[6];
 
     const {abi} = JSON.parse(compiled);
     const web3 = new Web3(gethipc, net);
     
-    const balance = await web3.eth.getBalance(account);
-    console.log("account balance", account, balance, "wei");
-    const unlocked = await web3.eth.personal.unlockAccount(account, password, 60);
-    console.log("account unlocked", account, unlocked);
+    const unlocked = await web3.eth.personal.unlockAccount(account1, password, 60);
+    console.log("account unlocked", account1, unlocked);
 
     const event = web3.utils.sha3("Coined(string)");
     const signature = web3.utils.sha3("WHU");
@@ -45,15 +44,18 @@ async function main()
     const amount = readline.questionInt("Amount? ");
     const opts =
     {
-        from: account,
+        from: account1,
         gas: 4700000,
         gasPrice: 0
     };
-    const receipt = await contract.methods.mint(account, amount).send(opts);
+    const receipt = await contract.methods.transfer(account2, amount).send(opts);
     console.log("received receipt", receipt);
-    const coins = await contract.methods.balanceOf(account).call();
+    
+    const coins1 = await contract.methods.balanceOf(account1).call();
+    const coins2 = await contract.methods.balanceOf(account2).call();
     const symbol = await contract.methods.symbol().call();
-    console.log("account balance", coins, symbol);
+    console.log("account balance", account1, coins1, symbol);
+    console.log("account balance", account2, coins2, symbol);
     process.exit(0);
 }
 

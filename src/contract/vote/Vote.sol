@@ -8,6 +8,11 @@ pragma solidity ^0.5.2;
 contract Vote
 {
     /**
+     * Created a vote.
+     */
+    event Voting();
+
+    /**
      * Number of Yes vs. No votes.
      */
     int private counter;
@@ -22,6 +27,7 @@ contract Vote
      */
     constructor() public
     {
+        emit Voting();
     }
 
     /**

@@ -24,7 +24,7 @@ If you want to learn and play more with **git** you may want to try [GitKraken](
 
 #### Install NodeJS
 
-Install [NodeJS version 8](https://nodejs.org/en/download/).
+Install [NodeJS](https://nodejs.org/en/download/).
 
 ```sh
 curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash - && sudo apt-get install -y nodejs
@@ -68,4 +68,92 @@ Create a new Ethereum PoW blockchain using the genesis block specified in ```src
 cd ~/lecture-blockchain
 npm run pow-genesis-1
 npm run pow-run-1
+```
+
+### Coin contract
+
+#### Compile contract
+
+To compile the [coin solidity contract](https://github.com/gorankarlic/lecture-blockchain/blob/master/src/contract/coin/Coin.sol), run
+
+```sh
+cd ~/lecture-blockchain
+npm run compile-contract-coin
+```
+
+#### Deploy contract
+
+Make sure you are running a PoW blockchain and have compiled the contract.
+
+```sh
+cd ~/lecture-blockchain
+npm run pow-deploy-coin-1
+```
+
+#### Mint coins
+
+Make sure you are running a PoW blockchain and have deployed the contract.
+
+To mint some coins into your wallet, run 
+
+```sh
+cd ~/lecture-blockchain
+npm run pow-deploy-coin-1
+```
+
+#### Transfer coins
+
+Make sure you are running a PoW blockchain and have minted some coins.
+
+To transfer some coins into another teams wallet, run 
+
+```sh
+cd ~/lecture-blockchain
+npm run pow-pay-1
+```
+
+#### Running on a PoA blockchain
+
+Substitute the `pow-` prefix with `poa` in each step to run it on a PoA blockchain.
+
+### Vote contract
+
+#### Compile contract
+
+To compile the [vote solidity contract](https://github.com/gorankarlic/lecture-blockchain/blob/master/src/contract/vote/Vote.sol), run
+
+```sh
+cd ~/lecture-blockchain
+npm run compile-contract-vote
+```
+
+#### Deploy contract
+
+Make sure you are running a PoW blockchain and have compiled the contract.
+
+```sh
+cd ~/lecture-blockchain
+npm run pow-deploy-vote-1
+```
+
+#### Vote
+
+Make sure you are running a PoW blockchain and have deployed the contract.
+
+To register a vote, run 
+
+```sh
+cd ~/lecture-blockchain
+npm run pow-vote-1
+```
+
+#### Transfer coins
+
+Make sure you are running a PoW blockchain and have minted some coins.
+
+To transfer some coins into another teams wallet, run 
+
+```sh
+cd ~/lecture-blockchain
+npm run pow-pay-1
 ```

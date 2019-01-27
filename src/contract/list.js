@@ -42,14 +42,14 @@ async function main()
     const logs = await web3.eth.getPastLogs(opts);
     const addresses = logs.map(({address}) => address);
     console.log(addresses);
-    /*for(let n = 0; n < number; n++)
+    for(let n = 0; n < number; n++)
     {
         const block = await web3.eth.getBlock(n, true);
         if(block.transactions.length > 0)
         {
             console.log(block);
         }
-    }*/
+    }
     process.exit(0);
 }
 
